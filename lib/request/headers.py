@@ -31,8 +31,9 @@ def create_headers():
     headers = dict()
     headers["User-Agent"] = random.choice(USER_AGENTS)
     headers["Referer"] = "http://www.{0}.com".format(SPIDER_NAME)
+    # headers["Referer"] = "http://www.{0}.com".format('bk')
     return headers
 
 
 if __name__ == '__main__':
-    pass
+    print(create_headers())

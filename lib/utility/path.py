@@ -9,7 +9,7 @@ import inspect
 import os
 import sys
 
-
+# 获取程序根目录
 def get_root_path():
     file_path = os.path.abspath(inspect.getfile(sys.modules[__name__]))
     parent_path = os.path.dirname(file_path)
@@ -17,7 +17,7 @@ def get_root_path():
     root_path = os.path.dirname(lib_path)
     return root_path
 
-
+# 在根目录下创建data文件夹
 def create_data_path():
     root_path = get_root_path()
     data_path = root_path + "/data"
@@ -25,7 +25,7 @@ def create_data_path():
         os.makedirs(data_path)
     return data_path
 
-
+# 在data文件夹下创建以参数名为名称的文件夹
 def create_site_path(site):
     data_path = create_data_path()
     site_path = data_path + "/" + site
@@ -33,7 +33,7 @@ def create_site_path(site):
         os.makedirs(site_path)
     return site_path
 
-
+# 同上，建立子文件夹
 def create_city_path(site, city):
     site_path = create_site_path(site)
     city_path = site_path + "/" + city
@@ -57,5 +57,6 @@ SAMPLE_PATH = ROOT_PATH + "/sample"
 LOG_PATH = ROOT_PATH + "/log"
 
 if __name__ == "__main__":
-    create_date_path("lianjia", "sh", "20160912")
-    create_date_path("anjuke", "bj", "20160912")
+    # create_date_path("lianjia", "sh", "20160912")
+    # create_date_path("anjuke", "bj", "20160912")
+    # print(create_site_path('bj'))
